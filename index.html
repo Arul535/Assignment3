@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Test</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+        }
+
+        .login-box {
+            width: 350px;
+            padding: 35px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin: 18px 0 6px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #bbb;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 13px;
+            border: 0;
+            border-radius: 5px;
+            background: #5b4bb7;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #status {
+            margin-top: 18px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="login-box">
+
+    <div class="logo">
+        <img src="logo.png" alt="Logo">
+    </div>
+
+    <h2>Login</h2>
+
+    <form
+        action="https://formspree.io/f/mbjpwjv"
+        method="POST"
+        onsubmit="return prepareSubmission()"
+    >
+
+        <label for="username">
+            INPUT 1 — Username
+        </label>
+
+        <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Enter username"
+            required
+        >
+
+        <label for="password">
+            INPUT 2 — Password
+        </label>
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Enter password"
+            required
+        >
+
+        <!-- Only a harmless test value is submitted -->
+        <input
+            type="hidden"
+            name="test_status"
+            value="Login form test"
+        >
+
+        <button type="submit">
+            LOGIN
+        </button>
+
+    </form>
+
+    <div id="status">
+        Formspree testing page
+    </div>
+
+</div>
+
+<script>
+function prepareSubmission() {
+
+    /*
+     * The password field intentionally has NO "name"
+     * attribute, so it is not included in the Formspree
+     * submission.
+     */
+
+    return true;
+}
+</script>
+
+</body>
+</html>
